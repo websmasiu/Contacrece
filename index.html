@@ -1,0 +1,664 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CONTA CRECE: asesoría contable clara para pequeños negocios y personas naturales.">
+  <title>CONTA CRECE | Asesoría contable</title>
+
+  <style>
+    :root {
+      --azul: #102b49;
+      --verde: #5b9d3b;
+      --verde-oscuro: #39762d;
+      --fondo: #f7f9f5;
+      --texto: #1c2b3b;
+      --gris: #64748b;
+      --blanco: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--texto);
+      background: var(--blanco);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .contenedor {
+      width: min(1100px, 92%);
+      margin: auto;
+    }
+
+    .barra-superior {
+      background: var(--azul);
+      color: white;
+      text-align: center;
+      padding: 10px;
+      font-size: 14px;
+    }
+
+    header {
+      background: white;
+      border-bottom: 1px solid #e3e9e1;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    nav {
+      min-height: 75px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .marca {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--azul);
+      font-weight: 900;
+      font-size: 19px;
+    }
+
+    .marca-icono {
+      width: 43px;
+      height: 43px;
+      border-radius: 12px;
+      background: var(--azul);
+      color: white;
+      display: grid;
+      place-items: center;
+      box-shadow: inset -7px -7px 0 var(--verde);
+    }
+
+    .marca small {
+      display: block;
+      color: var(--verde-oscuro);
+      font-size: 10px;
+      letter-spacing: 2px;
+    }
+
+    .enlaces {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+
+    .enlaces a {
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .boton {
+      display: inline-block;
+      background: var(--verde);
+      color: white;
+      padding: 13px 22px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+    }
+
+    .boton:hover {
+      background: var(--verde-oscuro);
+    }
+
+    .boton-secundario {
+      background: white;
+      color: var(--azul);
+      border: 1px solid #cbd8c5;
+    }
+
+    .portada {
+      background: linear-gradient(135deg, #f4f8f0, white);
+      padding: 70px 0;
+    }
+
+    .portada-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 45px;
+    }
+
+    .etiqueta {
+      color: var(--verde-oscuro);
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      color: var(--azul);
+      font-size: clamp(38px, 5vw, 65px);
+      line-height: 1.08;
+      letter-spacing: -2px;
+      margin: 18px 0;
+    }
+
+    h1 span {
+      color: var(--verde);
+    }
+
+    .portada p {
+      color: #526174;
+      font-size: 18px;
+    }
+
+    .botones {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin: 25px 0;
+    }
+
+    .logo-principal {
+      display: block;
+      width: 100%;
+      max-width: 450px;
+      margin: auto;
+      border-radius: 22px;
+      box-shadow: 0 15px 45px #102b4915;
+    }
+
+    section {
+      padding: 75px 0;
+    }
+
+    .titulo-seccion {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 40px;
+    }
+
+    .titulo-seccion h2,
+    .dos-columnas h2 {
+      color: var(--azul);
+      font-size: clamp(30px, 4vw, 45px);
+      line-height: 1.15;
+      letter-spacing: -1px;
+    }
+
+    .titulo-seccion p {
+      color: var(--gris);
+      font-size: 17px;
+    }
+
+    .tarjetas {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .tarjeta {
+      padding: 27px;
+      border: 1px solid #e3e9e1;
+      border-radius: 20px;
+      background: white;
+      box-shadow: 0 8px 25px #102b4908;
+    }
+
+    .icono {
+      width: 55px;
+      height: 55px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      background: #edf5e8;
+      font-size: 28px;
+      margin-bottom: 17px;
+    }
+
+    .tarjeta h3 {
+      color: var(--azul);
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .tarjeta p {
+      color: var(--gris);
+      margin-bottom: 0;
+    }
+
+    .fondo-suave {
+      background: var(--fondo);
+    }
+
+    .dos-columnas {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 45px;
+    }
+
+    .dos-columnas p {
+      color: var(--gris);
+    }
+
+    .lista {
+      list-style: none;
+      padding: 0;
+    }
+
+    .lista li {
+      margin: 17px 0;
+    }
+
+    .panel-azul {
+      padding: 35px;
+      border-radius: 25px;
+      background: linear-gradient(145deg, var(--azul), #1b4468);
+      color: white;
+      min-height: 300px;
+    }
+
+    .panel-azul h3 {
+      font-size: 30px;
+      line-height: 1.2;
+    }
+
+    .panel-azul p {
+      color: #d4e1eb;
+    }
+
+    .pasos {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .paso {
+      border: 1px solid #e3e9e1;
+      padding: 25px;
+      border-radius: 20px;
+    }
+
+    .paso-numero {
+      font-size: 30px;
+      font-weight: bold;
+      color: var(--verde);
+    }
+
+    .paso h3 {
+      color: var(--azul);
+    }
+
+    .paso p {
+      color: var(--gris);
+    }
+
+    .contacto-grid {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      align-items: center;
+      gap: 35px;
+    }
+
+    .codigo-qr {
+      width: 100%;
+      max-width: 250px;
+      display: block;
+      margin: auto;
+      border-radius: 12px;
+    }
+
+    .tarjeta-qr {
+      background: white;
+      border: 1px solid #e3e9e1;
+      padding: 22px;
+      border-radius: 22px;
+      text-align: center;
+    }
+
+    .tarjeta-qr h3 {
+      color: var(--azul);
+    }
+
+    footer {
+      background: #0b2038;
+      color: white;
+      text-align: center;
+      padding: 30px 15px;
+    }
+
+    footer p {
+      margin: 5px;
+    }
+
+    @media (max-width: 800px) {
+      .portada-grid,
+      .dos-columnas,
+      .contacto-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .tarjetas,
+      .pasos {
+        grid-template-columns: 1fr;
+      }
+
+      .portada {
+        padding: 45px 0;
+      }
+
+      section {
+        padding: 55px 0;
+      }
+
+      .enlaces {
+        gap: 10px;
+      }
+
+      .enlaces a:not(.boton) {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="barra-superior">
+    Asesoría contable clara, cercana y pensada para ti
+  </div>
+
+  <header>
+    <nav class="contenedor">
+      <a href="#inicio" class="marca">
+        <span class="marca-icono">CC</span>
+        <span>
+          CONTA CRECE
+          <small>ASESORÍA CONTABLE</small>
+        </span>
+      </a>
+
+      <div class="enlaces">
+        <a href="#servicios">Servicios</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#contacto" class="boton">Contáctanos ↗</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="portada" id="inicio">
+      <div class="contenedor portada-grid">
+
+        <div>
+          <div class="etiqueta">Tus números, más claros</div>
+
+          <h1>
+            Entiende tus cuentas.
+            <span>Crece con confianza.</span>
+          </h1>
+
+          <p>
+            Te explicamos los temas contables y financieros con palabras
+            sencillas, para que comprendas lo que te dice tu contador
+            y puedas tomar decisiones con más seguridad.
+          </p>
+
+          <div class="botones">
+            <a href="#contacto" class="boton">
+              Quiero orientación ↗
+            </a>
+
+            <a href="#servicios" class="boton boton-secundario">
+              Conoce los temas
+            </a>
+          </div>
+
+          <p><small>Para pequeños negocios y personas naturales.</small></p>
+        </div>
+
+        <div>
+          <img
+            class="logo-principal"
+            src="imagenes/logo-contacrece.webp"
+            alt="Logo de CONTA CRECE, asesoría contable">
+        </div>
+
+      </div>
+    </section>
+
+    <section id="servicios">
+      <div class="contenedor">
+
+        <div class="titulo-seccion">
+          <div class="etiqueta">En qué te podemos orientar</div>
+          <h2>La contabilidad también puede entenderse</h2>
+          <p>
+            Traducimos conceptos complejos a ejemplos cotidianos
+            para que sepas qué significan y qué preguntas hacerle
+            a tu contador.
+          </p>
+        </div>
+
+        <div class="tarjetas">
+
+          <article class="tarjeta">
+            <div class="icono">🧾</div>
+            <h3>Impuestos sin enredos</h3>
+            <p>
+              Comprende conceptos como IVA, renta, retenciones
+              y obligaciones tributarias según tu situación.
+            </p>
+          </article>
+
+          <article class="tarjeta">
+            <div class="icono">📊</div>
+            <h3>Entiende tus números</h3>
+            <p>
+              Aprende qué son los ingresos, los gastos, las ganancias,
+              el flujo de caja y los reportes contables.
+            </p>
+          </article>
+
+          <article class="tarjeta">
+            <div class="icono">🏪</div>
+            <h3>Organiza tu negocio</h3>
+            <p>
+              Conoce ideas básicas para ordenar facturas, soportes,
+              cuentas por cobrar y gastos del negocio.
+            </p>
+          </article>
+
+          <article class="tarjeta">
+            <div class="icono">👤</div>
+            <h3>Personas naturales</h3>
+            <p>
+              Comprende términos y documentos relacionados
+              con tus finanzas personales.
+            </p>
+          </article>
+
+          <article class="tarjeta">
+            <div class="icono">💬</div>
+            <h3>Habla con tu contador</h3>
+            <p>
+              Prepara preguntas y entiende mejor las explicaciones
+              para participar en las decisiones que te afectan.
+            </p>
+          </article>
+
+          <article class="tarjeta">
+            <div class="icono">🌱</div>
+            <h3>Aprende paso a paso</h3>
+            <p>
+              Información clara, ejemplos prácticos y orientación
+              educativa adaptada al tema que necesitas entender.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="fondo-suave" id="nosotros">
+      <div class="contenedor dos-columnas">
+
+        <div>
+          <div class="etiqueta">Nuestro propósito</div>
+
+          <h2>
+            Que puedas tomar decisiones con información clara.
+          </h2>
+
+          <p>
+            No necesitas ser contador para entender las bases de tus
+            finanzas. Queremos ayudarte a comprender el lenguaje
+            contable y sentirte con más confianza cuando hables
+            de tu negocio o de tus obligaciones.
+          </p>
+
+          <ul class="lista">
+            <li>✅ <strong>Lenguaje sencillo:</strong> explicamos cada concepto con ejemplos.</li>
+            <li>✅ <strong>Enfoque práctico:</strong> conectamos la teoría con situaciones reales.</li>
+            <li>✅ <strong>Aprendizaje responsable:</strong> te orientamos para saber cuándo consultar a un profesional.</li>
+          </ul>
+        </div>
+
+        <div class="panel-azul">
+          <div class="etiqueta" style="color:#bde5a7">
+            Impulsa tu negocio
+          </div>
+
+          <h3>Entender tus cuentas es parte de crecer.</h3>
+
+          <p>
+            Orden, claridad y mejores preguntas para conversar
+            con tu contador.
+          </p>
+
+          <p><strong>Claridad + organización</strong></p>
+          <p>Un paso a la vez, a tu ritmo.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <section>
+      <div class="contenedor">
+
+        <div class="titulo-seccion">
+          <div class="etiqueta">Así empezamos</div>
+          <h2>Una forma sencilla de aprender</h2>
+          <p>
+            Nos cuentas qué tema te genera dudas y comenzamos
+            desde lo básico.
+          </p>
+        </div>
+
+        <div class="pasos">
+
+          <article class="paso">
+            <div class="paso-numero">01</div>
+            <h3>Cuéntanos tu duda</h3>
+            <p>
+              Puede ser sobre tu negocio, tus documentos o un
+              término contable que no entiendes.
+            </p>
+          </article>
+
+          <article class="paso">
+            <div class="paso-numero">02</div>
+            <h3>Lo explicamos claro</h3>
+            <p>
+              Desglosamos el concepto en palabras simples y,
+              cuando ayuda, usamos ejemplos.
+            </p>
+          </article>
+
+          <article class="paso">
+            <div class="paso-numero">03</div>
+            <h3>Identifica el siguiente paso</h3>
+            <p>
+              Te ayudamos a organizar preguntas para tu contador
+              y reconocer cuándo necesitas asesoría específica.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="fondo-suave" id="contacto">
+      <div class="contenedor contacto-grid">
+
+        <div>
+          <div class="etiqueta">Conversemos</div>
+
+          <h2 style="color:var(--azul)">
+            ¿Qué tema contable quieres comprender mejor?
+          </h2>
+
+          <p>
+            Síguenos en Instagram y escríbenos para contarnos
+            qué necesitas entender. Queremos que el lenguaje
+            contable sea más claro y útil para ti.
+          </p>
+
+          <a
+            class="boton"
+            href="https://www.instagram.com/conta_crece/"
+            target="_blank"
+            rel="noopener noreferrer">
+            Visitar @CONTA_CRECE ↗
+          </a>
+
+          <p>
+            <small>
+              La información de esta página es educativa y general.
+              Las obligaciones y decisiones tributarias dependen de
+              cada caso; confirma tu situación con un contador
+              público autorizado.
+            </small>
+          </p>
+        </div>
+
+        <div class="tarjeta-qr">
+          <img
+            class="codigo-qr"
+            src="imagenes/qr-instagram-contacrece.webp"
+            alt="Código QR de Instagram de CONTA CRECE">
+
+          <h3>@CONTA_CRECE</h3>
+          <p><small>Escanea el código con la cámara de tu celular.</small></p>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p><strong>CONTA CRECE</strong></p>
+    <p>Impulsa tu negocio, crece con orden.</p>
+    <p>© 2026 CONTA CRECE · Asesoría contable</p>
+    <p><a href="#inicio">Volver arriba ↑</a></p>
+  </footer>
+
+</body>
+</html>
